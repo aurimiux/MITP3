@@ -1,16 +1,26 @@
 package com.example.tablelayoutsample;
 
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private TextView calculatorScreen;
-    private TextView resultScreen;
+     TextView calculatorScreen;
+     TextView resultScreen;
+
+    String workings = "";
 
 
     @Override
@@ -18,115 +28,135 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initTextViews();
+
+    }
+
+    private void initTextViews() {
         this.calculatorScreen = findViewById(R.id.calculatorScreen);
         this.resultScreen = findViewById(R.id.resultScreen);
-
     }
 
-    //private void updateText(String strToAdd){
-    //calculatorScreen.setText(R.string.zero);
+    private void setWorkings(String givenValue){
 
-
-    //}
+        workings = workings + givenValue;
+        calculatorScreen.setText(workings);
+    }
 
     public void equalOnClick (View view) {
+        Double result = null;
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+        try {
+            result = (double) engine.eval(workings);
+        } catch (ScriptException e) {
+            Toast.makeText(this,"Invalid Input", Toast.LENGTH_SHORT).show();
+        }
+        if(result != null)
+            workings = String.valueOf(result);
+            resultScreen.setText(String.valueOf(result.doubleValue()));
 
+            calculatorScreen.setText(String.valueOf(result.doubleValue()));
     }
 
-    public void mC (View view){
+
+boolean leftBracket = true;
+
+    public void bracketsOnClick(View view){
+    if(leftBracket)
+    {
+        setWorkings("(");
+        leftBracket = false;
+    }
+    else{
+        setWorkings(")");
+        leftBracket = true;
+    }
     }
 
-    public void mR (View view){
+    public void backspaceOnClick (View view){
+        workings = calculatorScreen.getText().toString();
+        workings = workings.substring(0, workings.length() - 1);
+        calculatorScreen.setText(workings);
     }
 
-    public void mS (View view){
-    }
-
-    public void mPlus (View view){
-
-    }
-
-    public void mMinus (View view){
-    }
-
-    public void cleanOneClick (View view){
-
-    }
-
-    public void cleanOnClick (View view){
+    public void cleanAllClick (View view){
         calculatorScreen.setText("");
+        workings = "";
         resultScreen.setText("");
+        leftBracket = true;
     }
 
     public void putMinusPlus (View view){
+
     }
 
     public void rootOnClick (View view){
+        String val = calculatorScreen.getText().toString();
+        double r = Math.sqrt(Double.parseDouble(val));
+        workings = String.valueOf(r);
+        calculatorScreen.setText(workings);
+        resultScreen.setText(workings);
     }
 
     public void sevenOnClick (View view){
-
-
+        setWorkings("7");
     }
 
     public void eightOnClick (View view){
-
-
+        setWorkings("8");
     }
 
     public void nineOnClick (View view){
-
-
+        setWorkings("9");
     }
 
     public void divisionOnClick (View view){
+        setWorkings("/");
     }
 
-
-    public void procentOnClick (View view){
-    }
 
     public void fourOnClick (View view){
-
+        setWorkings("4");
     }
 
     public void fiveOnClick (View view){
-
+        setWorkings("5");
     }
 
     public void sixOnClick (View view){
-
+        setWorkings("6");
     }
 
     public void multiOnClick (View view){
+        setWorkings("*");
     }
 
-    public void oneDividedXOnClick (View view){
-    }
 
     public void threeOnClick (View view){
-
+        setWorkings("3");
     }
 
     public void twoOnClick (View view){
-
+        setWorkings("2");
     }
 
     public void oneOnClick (View view){
-
+        setWorkings("1");
     }
 
     public void minusOnClick (View view){
-
+        setWorkings("-");
     }
 
     public void plusOnClick (View view){
+        setWorkings("+");
     }
 
     public void zeroOnClick (View view){
-        calculatorScreen.setText(R.string.zero);
+        setWorkings("0");
     }
 
-
-
+    public void decimalOnClick(View view) {
+        setWorkings(".");
+    }
 }

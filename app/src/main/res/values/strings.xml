@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">MIPT3</string>
 
+    <string name="mC">MC</string>
+    <string name="mR">MR</string>
+    <string name="mS">MS</string>
+    <string name="mPlus">M+</string>
+    <string name="mMinus">M-</string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
@@ -11,7 +16,6 @@
     <string name="seven">7</string>
     <string name="eight">8</string>
     <string name="nine">9</string>
-
     <string name="clear">C</string>
     <string name="clearAll">CE</string>
     <string name="exponent">^</string>
@@ -20,11 +24,13 @@
     <string name="multiply">×</string>
     <string name="add">+</string>
     <string name="minus">-</string>
-    <string name="plusMInus">+/-</string>
+    <string name="plusMinus">+/-</string>
     <string name="equals">=</string>
     <string name="root">√</string>
     <string name="percent">%</string>
     <string name="oneDividedByX">1/x</string>
-
+    <string name="decimal">.</string>
     <string name="backspace">←</string>
+
+
 </resources>

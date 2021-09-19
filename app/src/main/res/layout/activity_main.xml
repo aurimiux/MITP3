@@ -31,7 +31,6 @@
                 android:paddingRight="30dp"
                 android:layout_weight="1"
                 android:layout_gravity="end"
-                android:text ="2+5"
                 android:textAlignment="textEnd"
                 android:textSize="30dp" />
         </TableRow>
@@ -49,7 +48,6 @@
                 android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:gravity="center|right"
-                android:text ="7"
                 android:textColor="#000000"
                 android:textSize="50sp" />
         </TableRow>
@@ -64,35 +62,35 @@
             <Button
                 android:id="@+id/MC"
                 android:layout_height="match_parent"
-                android:text="MC"
+                android:text="@string/mC"
                 android:onClick="mC"
                 android:textSize="22sp" />
 
             <Button
                 android:id="@+id/MR"
                 android:layout_height="match_parent"
-                android:text="MR"
+                android:text="@string/mR"
                 android:onClick="mR"
                 android:textSize="22sp" />
 
             <Button
                 android:id="@+id/MS"
                 android:layout_height="match_parent"
-                android:text="MS"
+                android:text="@string/mS"
                 android:onClick="mS"
                 android:textSize="22sp" />
 
             <Button
                 android:id="@+id/mPlus"
                 android:layout_height="match_parent"
-                android:text="M+"
+                android:text="@string/mPlus"
                 android:onClick="mPlus"
                 android:textSize="22sp" />
 
             <Button
                 android:id="@+id/mMinus"
                 android:layout_height="match_parent"
-                android:text="M-"
+                android:text="@string/mMinus"
                 android:onClick="mMinus"
                 android:textSize="22sp" />
         </TableRow>
@@ -107,7 +105,7 @@
                 android:layout_height="match_parent"
                 android:layout_column="0"
                 android:text="@string/backspace"
-                android:onClick="cleanOneClick"
+                android:onClick="backspaceOnClick"
                 android:textSize="22sp" />
 
             <Button
@@ -115,23 +113,23 @@
                 android:layout_height="match_parent"
                 android:layout_column="1"
                 android:text="@string/clearAll"
-                android:onClick="cleanOnClick"
+                android:onClick="cleanAllClick"
                 android:textSize="22sp" />
 
             <Button
-                android:id="@+id/del"
+                android:id="@+id/parentheses"
                 android:layout_height="match_parent"
                 android:layout_column="2"
-                android:text="@string/clear"
-                android:onClick="cleanOneClick"
+                android:text="@string/parentheses"
+                android:onClick="bracketsOnClick"
                 android:textSize="22sp" />
 
             <Button
                 android:id="@+id/numberSymbolChange"
                 android:layout_height="match_parent"
                 android:layout_column="3"
-                android:text="@string/plusMInus"
                 android:onClick="putMinusPlus"
+                android:text="@string/plusMinus"
                 android:textSize="22sp" />
 
             <Button
@@ -233,11 +231,11 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/n3"
+                android:id="@+id/n1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/three"
-                android:onClick="threeOnClick"
+                android:text="@string/one"
+                android:onClick="oneOnClick"
                 android:textSize="22sp"
                 android:layout_column="0"/>
 
@@ -250,11 +248,11 @@
                 android:textSize="22sp" />
 
             <Button
-                android:id="@+id/n1"
+                android:id="@+id/n3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/one"
-                android:onClick="oneOnClick"
+                android:text="@string/three"
+                android:onClick="threeOnClick"
                 android:textSize="22sp" />
 
             <Button
@@ -282,9 +280,18 @@
                 android:id="@+id/n0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_span="3"
+                android:layout_span="2"
                 android:text="@string/zero"
                 android:onClick="zeroOnClick"
+                android:textSize="22sp" />
+
+            <Button
+                android:id="@+id/point"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_span="1"
+                android:text="@string/decimal"
+                android:onClick="decimalOnClick"
                 android:textSize="22sp" />
 
             <Button
