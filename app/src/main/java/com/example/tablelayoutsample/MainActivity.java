@@ -1,14 +1,11 @@
 package com.example.tablelayoutsample;
 
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -86,7 +83,28 @@ boolean leftBracket = true;
         leftBracket = true;
     }
 
+    public String addChar(String str, String ch, int position) {
+        return str.substring(0, position) + ch + str.substring(position);
+    }
+
+
     public void putMinusPlus (View view){
+        String minusPlus = calculatorScreen.getText().toString();
+
+        if(minusPlus.startsWith("-")){
+          String newStr = calculatorScreen.getText().toString().replaceFirst("-","");
+          workings = newStr;
+            calculatorScreen.setText(workings);
+            resultScreen.setText(workings);
+
+        }
+        else{
+            String newStr = calculatorScreen.getText().toString().replaceFirst("","-");
+            workings = newStr;
+            calculatorScreen.setText(workings);
+            resultScreen.setText(workings);
+
+        }
 
     }
 
