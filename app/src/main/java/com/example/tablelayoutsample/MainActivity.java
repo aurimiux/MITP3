@@ -108,7 +108,7 @@ boolean leftBracket = true;
 
     }
 
-    public void rootOnClick (View view){
+    public void rootOnClick (View view){                   // The only one who gives me questions
         String val = calculatorScreen.getText().toString();
         double r = Math.sqrt(Double.parseDouble(val));
         workings = String.valueOf(r);
